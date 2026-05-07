@@ -111,7 +111,7 @@ img {
     transition: filter 0.3s ease;
 }
 
-.photo-box img:hover {
+.photo-box img:hover, .photo-box img:active {
     filter: grayscale(0%); 
 }
 
@@ -182,17 +182,33 @@ img {
     border-radius: 10px;
 }
 
-/* Animaciones */
+/* =========================================
+   NUEVAS ANIMACIONES 100% CSS (Sin Fallos)
+   ========================================= */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    animation: aparecerSuave 1s ease-out forwards;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+/* Tiempos para que aparezcan en orden uno tras otro */
+.anim-1 { animation-delay: 0.2s; }
+.anim-2 { animation-delay: 0.5s; }
+.anim-3 { animation-delay: 0.8s; }
+.anim-4 { animation-delay: 1.1s; }
+.anim-5 { animation-delay: 1.4s; }
+.anim-6 { animation-delay: 1.7s; }
+.anim-7 { animation-delay: 2.0s; }
 
 /* =========================================
    AJUSTES EXCLUSIVOS PARA TELÉFONOS MÓVILES 
