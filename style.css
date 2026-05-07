@@ -127,6 +127,7 @@ img {
 .deco-bow, .deco-heart {
     position: absolute;
     font-size: 2rem;
+    z-index: 10;
 }
 
 .deco-bow {
@@ -183,7 +184,7 @@ img {
 }
 
 /* =========================================
-   NUEVAS ANIMACIONES 100% CSS (Sin Fallos)
+   ANIMACIONES DE CARGA (Aparecer suave)
    ========================================= */
 .fade-in {
     opacity: 0;
@@ -201,7 +202,6 @@ img {
     }
 }
 
-/* Tiempos para que aparezcan en orden uno tras otro */
 .anim-1 { animation-delay: 0.2s; }
 .anim-2 { animation-delay: 0.5s; }
 .anim-3 { animation-delay: 0.8s; }
@@ -211,10 +211,45 @@ img {
 .anim-7 { animation-delay: 2.0s; }
 
 /* =========================================
+   ANIMACIONES DE DETALLES (Latido y Flote)
+   ========================================= */
+@keyframes latido {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.3); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.deco-heart {
+    animation: latido 2s infinite;
+    display: inline-block;
+}
+
+@keyframes flotarPolaroid {
+    0% { transform: translateY(0) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(2deg); }
+}
+
+.polaroid {
+    animation: flotarPolaroid 4s ease-in-out infinite;
+}
+
+@keyframes flotarMono {
+    0% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-6px) rotate(-15deg); }
+    100% { transform: translateY(0) rotate(-15deg); }
+}
+
+.deco-bow {
+    animation: flotarMono 3.5s ease-in-out infinite;
+}
+
+/* =========================================
    AJUSTES EXCLUSIVOS PARA TELÉFONOS MÓVILES 
    ========================================= */
 @media (max-width: 600px) {
-    
     body {
         padding: 10px 5px; 
     }
@@ -245,7 +280,6 @@ img {
     }
 
     .polaroid {
-        transform: rotate(1deg);
         margin: 0 auto; 
     }
 
