@@ -12,7 +12,7 @@
     <div class="scrapbook-container">
         
         <div class="fade-in anim-1 header-banner">
-            <img src="https://via.placeholder.com/600x200/ddd/888?text=Pon+tu+imagen+aqui" alt="Banner">
+            <img src="banner.jpg" alt="Banner" onerror="this.src='https://via.placeholder.com/600x200/ddd/888?text=Pon+tu+imagen+aqui'">
         </div>
 
         <div class="fade-in anim-2 title-section">
@@ -24,7 +24,7 @@
 
         <div class="fade-in anim-3 section-grid">
             <div class="photo-box">
-                <img src="https://via.placeholder.com/200x200/ddd/888?text=Foto+de+ella" alt="Mi niña">
+                <img src="ella.jpg" alt="Mi niña" onerror="this.src='https://via.placeholder.com/200x200/ddd/888?text=Foto+de+ella'">
                 <span class="deco-bow">🎀</span>
             </div>
             
@@ -32,18 +32,28 @@
                 <p>El paso del tiempo no importa cuando se trata del amor. ¿Cómo explicar la conexión instantánea que sentí cuando te conocí? Desde el momento en que te vi, supe que serías indispensable en mi vida. Tu presencia calienta mi alma y me hace sentir completa.</p>
             </div>
 
-            <div class="spotify-card">
-                <img src="https://via.placeholder.com/50/ddd/888" alt="Album Cover" class="album-cover">
+            <div class="spotify-card" id="reproductor-btn" style="cursor: pointer;">
+                <img src="portada.jpg" alt="Album Cover" class="album-cover" onerror="this.src='https://via.placeholder.com/50/ddd/888'">
+                
                 <div class="song-info">
-                    <strong>Can't Help Falling in Love</strong>
-                    <span>Elvis Presley</span>
+                    <strong>Risk It All</strong>
+                    <span>Bruno Mars</span>
                 </div>
+                
                 <div class="lyrics">
-                    Take my hand<br>
-                    Take my whole life too<br>
-                    For I can't help<br>
-                    Falling in love with you
+                    <span id="estado-musica">▶️ Toca para escuchar</span><br><br>
+                    Say you want the moon<br>
+                    Watch me learn to fly<br>
+                    Ain't no mountain you could point to<br>
+                    I wouldn't climb<br>
+                    It's crazy, but it's true<br>
+                    There's nothing I won't do<br>
+                    I'd risk it all for you
                 </div>
+
+                <audio id="mi-cancion" loop>
+                    <source src="cancion.mp3" type="audio/mpeg">
+                </audio>
             </div>
         </div>
 
@@ -56,7 +66,7 @@
                 <p>He buscado las palabras adecuadas para expresar mi gratitud y amor hacia tu presencia en mi vida, pero estoy empezando a creer que simplemente no existen. Tu impacto en mí es tan inmenso que ninguna palabra podría hacer justicia a lo que siento. La suerte pareciera estar de nuestro lado al traernos juntos en este mundo, pues la probabilidad de que nos encontráramos debería ser prácticamente imposible. Sin embargo, aquí estamos. Y con cada momento que compartimos, mi agradecimiento y amor hacia ti solo se hacen más fuertes.</p>
             </div>
             <div class="photo-box polaroid">
-                <img src="https://via.placeholder.com/200x250/ddd/888?text=Tu+foto" alt="Yo">
+                <img src="nosotros.jpg" alt="Yo" onerror="this.src='https://via.placeholder.com/200x250/ddd/888?text=Tu+foto'">
                 <span class="deco-heart">🤍</span>
             </div>
         </div>
@@ -67,7 +77,7 @@
 
         <div class="fade-in anim-7 section-footer">
             <div class="photo-box">
-                <img src="https://via.placeholder.com/300x150/ddd/888?text=Foto+manos" alt="Manos unidas">
+                <img src="manos.jpg" alt="Manos unidas" onerror="this.src='https://via.placeholder.com/300x150/ddd/888?text=Foto+manos'">
             </div>
             <div class="text-box">
                 <p>No podría imaginar mi vida sin ti. Tu presencia, tu amor y tu apoyo son más valiosos que cualquier riqueza o posesión. Cada momento contigo me llena de calidez y tranquilidad por dentro, y el pensamiento de estar separados me aterra. Me siento afortunada no solo por tenerte en mi vida, sino también por haberte conocido en el momento y lugar perfecto. Te amo.</p>
@@ -76,5 +86,20 @@
 
     </div>
 
+    <script>
+        const tarjeta = document.getElementById('reproductor-btn');
+        const audio = document.getElementById('mi-cancion');
+        const estadoTexto = document.getElementById('estado-musica');
+
+        tarjeta.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                estadoTexto.innerHTML = '⏸️ Reproduciendo...';
+            } else {
+                audio.pause();
+                estadoTexto.innerHTML = '▶️ Toca para escuchar';
+            }
+        });
+    </script>
 </body>
 </html>
