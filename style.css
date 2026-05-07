@@ -315,3 +315,13 @@ img {
 .mensaje-cabecera p {
     margin-bottom: 20px; /* Esto da el espacio doble entre bloques */
 }
+/* =========================================
+   CORRECCIÓN DE TEMBLOR (Aceleración de Hardware)
+   ========================================= */
+.polaroid, .deco-heart, .deco-bow, .spotify-card, .fade-in {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
