@@ -151,6 +151,11 @@ img {
     flex-direction: column;
     gap: 10px;
     font-family: sans-serif; 
+    transition: transform 0.2s;
+}
+
+.spotify-card:active {
+    transform: scale(0.98);
 }
 
 .song-info {
@@ -163,6 +168,10 @@ img {
     font-size: 0.8rem;
     font-weight: bold;
     line-height: 1.5;
+}
+
+#estado-musica {
+    color: #1ed760; /* Verde estilo Spotify */
 }
 
 .audio-wave {
